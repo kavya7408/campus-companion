@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Companion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app">
+        <aside class="sidebar">
+            <h2>Campus Companion</h2>
+            <p>Your academic assistant</p>
+
+            <nav>
+                <a href="#dashboard">Dashboard</a>
+                <a href="#tasks">My Tasks</a>
+                <a href="#planner">Study Planner</a>
+                <a href="#assistant">AI Assistant</a>
+            </nav>
+        </aside>
+
+        <main class="main-content" id="dashboard">
+            <header>
+                <p>YOUR PERSONAL STUDY SPACE</p>
+                <h1>Let's organize your day.</h1>
+                <p>Plan smarter. Learn better. Stay on track.</p>
+            </header>
+
+            <section class="cards">
+                <article class="card">
+                    <h3>Upcoming Tasks</h3>
+                    <p id="task-count">0 tasks</p>
+                </article>
+
+                <article class="card">
+                    <h3>Completed</h3>
+                    <p id="completed-count">0 tasks</p>
+                </article>
+
+                <article class="card">
+                    <h3>Study Plan</h3>
+                    <p id="study-count">0 study sessions planned</p>
+                </article>
+            </section>
+
+            <section class="tasks card" id="tasks">
+                <h2>My Tasks</h2>
+                <p>Add assignments and track your progress.</p>
+
+                <form id="task-form">
+                    <label for="task-input">Task name</label>
+                    <input
+                        type="text"
+                        id="task-input"
+                        placeholder="e.g. Complete Java assignment"
+                        required
+                    >
+                    <button type="submit">Add Task</button>
+                </form>
+
+                <h3>Your Tasks</h3>
+                <ul id="task-list"></ul>
+                <p id="empty-tasks">No tasks added yet.</p>
+            </section>
+
+           
+            <section class="planner card" id="planner">
+                <h2>Study Planner</h2>
+                <p>Plan your study sessions and stay organized.</p>
+
+                <form id="planner-form">
+                    <label for="study-subject">Subject</label>
+                    <input
+                        type="text"
+                        id="study-subject"
+                        placeholder="Enter a subject"
+                        required
+                    >
+
+                    <label for="study-time">Study duration</label>
+                    <select id="study-time">
+                        <option value="25">25 minutes</option>
+                        <option value="45">45 minutes</option>
+                        <option value="60">1 hour</option>
+                        <option value="120">2 hours</option>
+                    </select>
+
+                    <button type="submit">Add Study Session</button>
+                </form>
+
+                <h3>Your Study Sessions</h3>
+                <ul id="study-list"></ul>
+                <p id="empty-study">No study sessions planned yet.</p>
+            </section>
+
+
+            <section class="assistant card" id="assistant">
+                <h2>Talk to Campus Companion</h2>
+                <div id="chat-messages" aria-live="polite">
+                    <p class="bot-message">
+                        Hi! Tell me about your assignments or upcoming exams.
+                    </p>
+                </div>
+
+                <form id="chat-form">
+                    <input
+                        id="chat-input"
+                        type="text"
+                        placeholder="e.g. Help me plan my study day"
+                        aria-label="Your message"
+                        required
+                    >
+                    <button type="submit">Send</button>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
